@@ -20,7 +20,7 @@ export const CountryInform = () => {
 
     return (
         <div className={styles.countryBlockInformation}>
-            {state.choosed.length !== 0 && state.choosed.map(el => (
+            {(state.choosed.length !== 0 && state.filteredData.length !== 1) && state.choosed.map(el => (
                 <div key={el.ccn3} className={styles.choosedCountry}>
                     <div className={styles.countryName}><h2>{el.name.common}</h2></div>
                     <div className={styles.countryFlag}><img src={el.flags.svg} alt="flag" /></div>
