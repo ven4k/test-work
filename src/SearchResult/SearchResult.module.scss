@@ -1,0 +1,23 @@
+.searcnResultBlock {
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 800px;
+
+    .resultBtn {
+        margin-top: 4px;
+    }
+
+    .ul {
+        -moz-column-count: 3;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 20px;
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+    .li {
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+}

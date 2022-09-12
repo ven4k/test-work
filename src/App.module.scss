@@ -1,3 +1,26 @@
+html{
+    background-color: antiquewhite;
+}
+body{
+    box-sizing: border-box;
+    button{
+        padding: 5px;
+    }
+}
 .app{
-    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    width: 1400px;
+    input{
+        position: relative;
+        width: 500px;
+        height: 30px;
+        margin-right: 10px;
+        left: 30%;
+    }
+    .appBtn{
+        padding: 5px;
+        position: relative;
+        left: 30%;
+    }
 }

@@ -1,23 +1,23 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { Context } from "../Context/Context";
+import { itemInfoAC } from "../ActionCreators/ActionCreators";
+import styles from './SearchResult.module.scss';
 
-
-const SET_ITEM = 'SET_ITEM';
-
-
-export const SearchResult = (props) => {
-    const { filterData } = props;
+export const SearchResult = () => {
     const [state, dispatch] = useContext(Context);
+
     return (
-        <div>
-            {filterData.length > 1 && filterData.map(el => (
-                <div key={el.name.common}>
-                <ul>
-                    <li> {el.name.common}</li>
-                </ul>
-                <button>Show more</button>
-                </div>
+        <div className={styles.searcnResultBlock}>
+            <ul className={styles.ul}>
+            {state.filteredData.length > 1 && state.filteredData.map(el => (
+                        <Fragment key={el.cca3}>
+                        <li className={styles.li}>{el.name.common}</li>
+                        <button className={styles.resultBtn} onClick={() => dispatch(itemInfoAC([el]))}>Show more</button>
+                        </Fragment>
             ))}
-        </div>
+            </ul>
+            </div>
+      
     )
+
 }
