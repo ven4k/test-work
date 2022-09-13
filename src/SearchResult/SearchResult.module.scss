@@ -1,23 +1,29 @@
 .searcnResultBlock {
-    margin-top: 40px;
-    margin-left: 20px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
     width: 800px;
+    .countryBlock{
+        margin: 10px;
+        position: relative;
+    }
 
     .resultBtn {
         margin-top: 4px;
     }
-
-    .ul {
-        -moz-column-count: 3;
-        -moz-column-gap: 20px;
-        -webkit-column-count: 3;
-        -webkit-column-gap: 20px;
-        column-count: 3;
-        column-gap: 20px;
+    .resultFlags{
+        width: 20px;
+        height: 15px;
+    }
+    .countryName{
+        margin-left: 5px;
+        margin-bottom: 3px;
+    }
+    .toTop{
+        transition:  1s;
     }
 
-    .li {
-        margin-left: 10px;
-        margin-top: 5px;
-    }
 }

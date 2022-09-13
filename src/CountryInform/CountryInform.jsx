@@ -19,7 +19,7 @@ export const CountryInform = () => {
     console.log(state.choosed);
 
     return (
-        <div className={styles.countryBlockInformation}>
+        <div className={styles.countryBlockInformation} id="top">
             {(state.choosed.length !== 0 && state.filteredData.length !== 1) && state.choosed.map(el => (
                 <div key={el.ccn3} className={styles.choosedCountry}>
                     <div className={styles.countryName}><h2>{el.name.common}</h2></div>

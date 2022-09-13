@@ -13,7 +13,7 @@ export const reducer = (state, action) => {
             return {...state, choosed: action.payload}
         }
         case REMOVE_CHOOSED_ITEM: {
-            return {...state, choosed: [...state.choosed.filter(el => el !== action.payload)]}
+            return {...state, choosed: [...state.choosed.splice(-1)]}
         }
         case SET_FILTERED_DATA: {
             return {...state, filteredData: action.payload}

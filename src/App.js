@@ -3,7 +3,7 @@ import { Context } from "./Context/Context";
 import { Favorites } from "./Favorites/Favorites";
 import { MainContent } from "./MainContent/MainContent";
 import { reducer } from './reducer';
-import { setFilteredDataAC, setDataAC } from "./ActionCreators/ActionCreators";
+import { setFilteredDataAC, setDataAC, removeChoosedItemAC } from "./ActionCreators/ActionCreators";
 import styles from './App.module.scss';
 
 
@@ -26,13 +26,24 @@ const App = () => {
       .then(result => setData(result))
   }, [])
   const handleChange = (e) => setInputValue(e.target.value);
+
   
   const handleClick = (e) => {
     e.preventDefault();
-    const filteredCountries = data.filter(el => { return el.name.common.toLowerCase().includes(inputValue.toLowerCase()) });
+    const filteredCountries = data.filter(el => { return el.name.common.toLowerCase().includes(inputValue !== '' && inputValue.toLowerCase()) });
     dispatch(setDataAC(data));
     dispatch(setFilteredDataAC(filteredCountries));
+    dispatch(removeChoosedItemAC());
+    
   }
+  const allCountries = (e) => {
+    e.preventDefault();
+    const all = data.map(el => el);
+    dispatch(setDataAC(data));
+    dispatch(setFilteredDataAC(all));
+    dispatch(removeChoosedItemAC());
+  }
+ 
 
   return (
     <Context.Provider value={[state, dispatch]}>
@@ -40,7 +51,8 @@ const App = () => {
         <div>
           <form>
             <input type='search' onChange={handleChange} />
-            <button className={styles.appBtn}type='submit' onClick={handleClick}>select</button>
+            <button disabled={!inputValue} className={styles.appBtn}type='submit' onClick={handleClick}>select</button>
+            <button className={styles.allCountries} onClick={allCountries}>Get all Countries</button>
           </form>
         </div>
         <MainContent />
