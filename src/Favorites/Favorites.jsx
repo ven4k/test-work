@@ -10,7 +10,7 @@ export const Favorites = () => {
     console.log(state.favorites)
     return (
         <aside>
-            <h2>Favorites</h2>
+            <h2 className={styles.headName}>Favorites</h2>
             <ol>
                 {state.favorites.length > 0 && state.favorites.map(el => (
                     <Fragment key={el.name.common}>
