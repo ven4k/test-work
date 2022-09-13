@@ -25,8 +25,11 @@ const App = () => {
       .then(response => response.json())
       .then(result => setData(result))
   }, [])
-  const handleChange = (e) => setInputValue(e.target.value);
-
+  const handleChange = (e) => {
+    const result = e.target.value.replace(/[^a-z]/gi, '');
+   setInputValue(result);
+  };
+ 
   
   const handleClick = (e) => {
     e.preventDefault();
@@ -50,7 +53,7 @@ const App = () => {
       <div className={styles.app}>
         <div>
           <form>
-            <input type='search' onChange={handleChange} />
+            <input type='text' onChange={handleChange} value={inputValue} />
             <button disabled={!inputValue} className={styles.appBtn}type='submit' onClick={handleClick}>select</button>
             <button className={styles.allCountries} onClick={allCountries}>Get all Countries</button>
           </form>
