@@ -3,14 +3,14 @@ import { Context } from "../Context/Context";
 import { itemInfoAC, setFilteredCurrentPageAC, setCurrentPageAC } from "../ActionCreators/ActionCreators";
 import styles from './SearchResult.module.scss';
 
-export const SearchResult = ({ countryPerPage, totalCountries, filteredCountries }) => {
+export const SearchResult = ({ countryPerPage, totalCountries }) => {
     const [state, dispatch] = useContext(Context);
     const pageNumbers = [];
     const filteredPageNumbers = [];
     for (let i = 1; i <= Math.ceil(totalCountries.length / countryPerPage); i++) {
         pageNumbers.push(i)
     }
-    for (let i = 1; i <= Math.ceil(filteredCountries.length / countryPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(state.filteredCountries.length / countryPerPage); i++) {
         filteredPageNumbers.push(i)
     }
     const DataCountries = () => {

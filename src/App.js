@@ -3,7 +3,7 @@ import { Context } from "./Context/Context";
 import { Favorites } from "./Favorites/Favorites";
 import { MainContent } from "./MainContent/MainContent";
 import { reducer } from './reducer';
-import { setFilteredDataAC, setDataAC, removeChoosedItemAC } from "./ActionCreators/ActionCreators";
+import { setFilteredDataAC, setDataAC, removeChoosedItemAC, setFilteredCountriesAC } from "./ActionCreators/ActionCreators";
 import styles from './App.module.scss';
 
 
@@ -20,6 +20,7 @@ const App = () => {
     filteredData: [],
     favorites: localStorage.getItem('element') === null ? initialFavorites : storage,
     choosed: [],
+    filteredCountries: [],
     dataCurrentPage: 1,
     filteredDataCurrentPage: 1
   })
@@ -47,6 +48,7 @@ const App = () => {
     e.preventDefault();
     dispatch(setDataAC(data));
     dispatch(setFilteredDataAC(filtered));
+    dispatch(setFilteredCountriesAC(filteredCountries))
     dispatch(removeChoosedItemAC());
   }
   const allCountries = (e) => {
@@ -62,8 +64,6 @@ const App = () => {
   useEffect(() => {
     dispatch(setFilteredDataAC(filtered))
   }, [state.filteredDataCurrentPage])
-
-const totalCountries = data.map(el => el); 
   
   return (
     <Context.Provider value={[state, dispatch]}>
@@ -75,7 +75,7 @@ const totalCountries = data.map(el => el);
             <button className={styles.allCountries} onClick={allCountries}>Get all Countries</button>
           </form>
         </div>
-        <MainContent countryPerPage={countryPerPage} totalCountries={totalCountries} filteredCountries={filteredCountries} />
+        <MainContent countryPerPage={countryPerPage} totalCountries={data}/>
         <Favorites />
       </div>
     </Context.Provider>
