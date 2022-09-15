@@ -7,7 +7,6 @@ import styles from './Favorites.module.scss';
 
 export const Favorites = () => {
     const [state, dispatch] = useContext(Context);
-    console.log(state.favorites)
     return (
         <aside>
             <h2 className={styles.headName}>Favorites</h2>

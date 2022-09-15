@@ -16,7 +16,6 @@ export const CountryInform = () => {
     useEffect(() => {
         localStorage.setItem('element', JSON.stringify(state.favorites))
     }, [state.favorites])
-    console.log(state.choosed);
 
     return (
         <div className={styles.countryBlockInformation} id="top">

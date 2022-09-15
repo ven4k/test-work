@@ -1,4 +1,4 @@
-import { SET_ITEM, REMOVE_ITEM, CHOOSED_ITEM, SET_FILTERED_DATA, SET_DATA, REMOVE_CHOOSED_ITEM} from "./BoilerPlates/BoilerPlates";
+import { SET_ITEM, REMOVE_ITEM, CHOOSED_ITEM, SET_FILTERED_DATA, SET_DATA, REMOVE_CHOOSED_ITEM, SET_CURRENT_PAGE, SET_CURRENT_FILTERED_PAGE} from "./BoilerPlates/BoilerPlates";
 
 
 export const reducer = (state, action) => {
@@ -20,6 +20,12 @@ export const reducer = (state, action) => {
         }
         case SET_DATA: {
             return {...state, data: action.payload}
+        }
+        case SET_CURRENT_PAGE: {
+            return {...state, dataCurrentPage: action.payload}
+        }
+        case SET_CURRENT_FILTERED_PAGE: {
+            return {...state, filteredDataCurrentPage: action.payload}
         }
         default: return state
     }

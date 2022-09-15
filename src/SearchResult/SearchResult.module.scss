@@ -27,3 +27,15 @@
     }
 
 }
+.pageNumbers{
+    display: flex;
+    margin-top: 20px;
+    .pageNumbersItem{
+        padding: 5px;
+        margin: 5px;
+        outline: 2px solid black;
+    }
+    .pageNumbersItem:hover{
+        background-color: red;
+    }
+}
